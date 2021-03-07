@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XF_FAM.Views.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="BlanchedAlmond">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <forms:AnimationView
+            x:Name="animationView"
+            Grid.Row="0"
+            Animation="LottieLogo.json"
+            AnimationSource="AssetOrBundle"
+            Command="{Binding ClickCommand}"
+            HorizontalOptions="FillAndExpand"
+            RepeatCount="3"
+            RepeatMode="Restart"
+            VerticalOptions="FillAndExpand" />
+
+
+        <pv:PancakeView
+            Grid.Row="1"
+            Margin="80,0"
+            BackgroundColor="White"
+            CornerRadius="50"
+            HorizontalOptions="FillAndExpand">
+            <pv:PancakeView.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SecondPageCommand}" />
+            </pv:PancakeView.GestureRecognizers>
+            <StackLayout
+                HorizontalOptions="Center"
+                Orientation="Horizontal"
+                VerticalOptions="Center">
+                <Label
+                    FontSize="Micro"
+                    Text="設定你的用戶名稱"
+                    VerticalOptions="Center" />
+                <ffimageloadingsvg:SvgCachedImage
+                    BackgroundColor="Black"
+                    HeightRequest="25"
+                    Source="resource://XF_FAM.Resources.avocado.svg"
+                    VerticalOptions="Center"
+                    WidthRequest="25" />
+            </StackLayout>
+        </pv:PancakeView>
+        <pv:PancakeView
+            Grid.Row="2"
+            Margin="80,0"
+            BackgroundColor="Black"
+            CornerRadius="50"
+            HorizontalOptions="FillAndExpand">
+            <StackLayout
+                HorizontalOptions="Center"
+                Orientation="Horizontal"
+                VerticalOptions="Center">
+                <Label
+                    FontSize="Micro"
+                    Text="已有邀請簡訊了?由此登入"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+                <ffimageloadingsvg:SvgCachedImage
+                    BackgroundColor="Black"
+                    HeightRequest="25"
+                    Source="resource://XF_FAM.Resources.avocado.svg"
+                    VerticalOptions="Center"
+                    WidthRequest="25" />
+            </StackLayout>
+        </pv:PancakeView>
+    </Grid>
+
+</ContentPage>
