@@ -5,11 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
-    xmlns:prism="http://prismlibrary.com"
     xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-    prism:ViewModelLocator.AutowireViewModel="True"
-    BackgroundColor="BlanchedAlmond">
-
+    BackgroundColor="#D1BAAC">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="7*" />
@@ -21,14 +18,15 @@
         <forms:AnimationView
             x:Name="animationView"
             Grid.Row="0"
-            Animation="LottieLogo.json"
+            Margin="60"
+            Animation="50486-rocket.json"
             AnimationSource="AssetOrBundle"
+            BackgroundColor="#D1BAAC"
             Command="{Binding ClickCommand}"
             HorizontalOptions="FillAndExpand"
             RepeatCount="3"
             RepeatMode="Restart"
             VerticalOptions="FillAndExpand" />
-
 
         <pv:PancakeView
             Grid.Row="1"
@@ -79,5 +77,4 @@
             </StackLayout>
         </pv:PancakeView>
     </Grid>
-
 </ContentPage>

@@ -1,40 +1,37 @@
-﻿using Prism;
+using Prism;
 using Prism.Ioc;
-using Prism.Unity;
+using Xamarin.Essentials.Implementation;
+using Xamarin.Essentials.Interfaces;
 using Xamarin.Forms;
-using XF_FAM.ViewModel;
+using XF_FAM.ViewModels;
 using XF_FAM.Views;
 
 namespace XF_FAM
 {
-    public partial class App : PrismApplication
+    public partial class App
     {
-        public App() : this(null)
-        {
-        }
-
         public App(IPlatformInitializer initializer)
             : base(initializer)
         {
         }
 
-        protected override void RegisterTypes(IContainerRegistry containerRegistry)
-        {
-            containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainViewModel>();
-            containerRegistry.RegisterForNavigation<LoginPage, LoginViewModel>();
-        }
-
         protected override async void OnInitialized()
         {
             InitializeComponent();
-            await NavigationService.NavigateAsync("NavigationPage/LoginPage");
-            //var result =
 
-            //if (!result.Success)
-            //{
-            //    System.Diagnostics.Debugger.Break();
-            //}
+            var result = await NavigationService.NavigateAsync("LoginPage");
+            if (result.Success)
+            {
+            }
+        }
+
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
+
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<LoginPage, LoginViewModel>();
         }
     }
 }

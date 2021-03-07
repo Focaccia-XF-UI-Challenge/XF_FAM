@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -15,7 +14,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using UnhandledExceptionEventArgs = Windows.UI.Xaml.UnhandledExceptionEventArgs;
 
 namespace XF_FAM.UWP
 {
@@ -32,18 +30,6 @@ namespace XF_FAM.UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            this.UnhandledException += OnUnhandledException;
-            TaskScheduler.UnobservedTaskException += OnUnobservedException;
-        }
-
-        private void OnUnobservedException(object sender, UnobservedTaskExceptionEventArgs e)
-        {
-            e.SetObserved();
-        }
-
-        private void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
-        {
-            e.Handled = true;
         }
 
         /// <summary>
@@ -53,12 +39,7 @@ namespace XF_FAM.UWP
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-#if DEBUG
-            if (System.Diagnostics.Debugger.IsAttached)
-            {
-                this.DebugSettings.EnableFrameRateCounter = false;
-            }
-#endif
+
 
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -70,9 +51,6 @@ namespace XF_FAM.UWP
                 rootFrame = new Frame();
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
-
-                //[Xamarin.FFImageLoading.Svg.Forms]
-                FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
 
                 Xamarin.Forms.Forms.Init(e);
 
@@ -101,7 +79,7 @@ namespace XF_FAM.UWP
         /// </summary>
         /// <param name="sender">The Frame which failed navigation</param>
         /// <param name="e">Details about the navigation failure</param>
-        private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
+        void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }

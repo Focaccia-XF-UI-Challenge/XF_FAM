@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Prism;
+using Prism.Ioc;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,8 +22,16 @@ namespace XF_FAM.UWP
         public MainPage()
         {
             this.InitializeComponent();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            LoadApplication(new XF_FAM.App(new UwpInitializer()));
+        }
+    }
 
-            LoadApplication(new XF_FAM.App());
+    public class UwpInitializer : IPlatformInitializer
+    {
+        public void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            // Register any platform specific implementations
         }
     }
 }

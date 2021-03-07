@@ -1,13 +1,14 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Lottie.Forms.Platforms.Android;
 using Prism;
 using Prism.Ioc;
 
 namespace XF_FAM.Droid
 {
     [Activity(Theme = "@style/MainTheme",
-        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
+              ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -18,6 +19,9 @@ namespace XF_FAM.Droid
             base.OnCreate(savedInstanceState);
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+
             LoadApplication(new App(new AndroidInitializer()));
         }
 
