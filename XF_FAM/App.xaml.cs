@@ -19,10 +19,7 @@ namespace XF_FAM
         {
             InitializeComponent();
 
-            var result = await NavigationService.NavigateAsync("LoginPage");
-            if (result.Success)
-            {
-            }
+            await NavigationService.NavigateAsync("LoginPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

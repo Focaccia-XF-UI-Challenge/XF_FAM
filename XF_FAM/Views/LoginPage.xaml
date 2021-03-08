@@ -11,7 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="7*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="20" />
+            <RowDefinition Height="10" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -20,7 +20,7 @@
             x:Name="AnimationView"
             Grid.Row="0"
             Margin="80"
-            Animation="50486-rocket.json"
+            Animation="LottieLogo.json"
             AnimationSource="AssetOrBundle"
             BackgroundColor="#D1BAAC"
             HorizontalOptions="FillAndExpand"
