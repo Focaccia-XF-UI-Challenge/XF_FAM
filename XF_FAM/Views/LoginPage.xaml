@@ -22,7 +22,6 @@
             Margin="80"
             Animation="LottieLogo.json"
             AnimationSource="AssetOrBundle"
-            BackgroundColor="#D1BAAC"
             HorizontalOptions="FillAndExpand"
             RepeatMode="Infinite"
             VerticalOptions="FillAndExpand" />
