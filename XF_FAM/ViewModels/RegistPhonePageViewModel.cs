@@ -20,7 +20,7 @@ namespace XF_FAM.ViewModels
         {
             _navigationService = navigationService;
 
-            //get Data By Url:https://raw.githubusercontent.com/linssen/country-flag-icons/master/countries.json
+            //todo [2020-03-09] get Data By Url:https://raw.githubusercontent.com/linssen/country-flag-icons/master/countries.json
 
             Countrys = new List<Country>()
             {
