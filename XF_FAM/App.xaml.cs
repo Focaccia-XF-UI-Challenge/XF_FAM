@@ -19,7 +19,7 @@ namespace XF_FAM
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("LoginPage");
+            await NavigationService.NavigateAsync("NavigationPage/LoginPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -29,6 +29,8 @@ namespace XF_FAM
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginViewModel>();
+            containerRegistry.RegisterForNavigation<RegistPhonePage, RegistPhonePageViewModel>();
+            containerRegistry.RegisterForNavigation<RegistConfirmPage, RegistConfirmPageViewModel>();
         }
     }
 }

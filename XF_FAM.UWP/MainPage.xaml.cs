@@ -22,7 +22,9 @@ namespace XF_FAM.UWP
         public MainPage()
         {
             this.InitializeComponent();
+
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+
             LoadApplication(new XF_FAM.App(new UwpInitializer()));
         }
     }
