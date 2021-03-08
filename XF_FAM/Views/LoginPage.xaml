@@ -11,21 +11,20 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="7*" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <forms:AnimationView
-            x:Name="animationView"
+            x:Name="AnimationView"
             Grid.Row="0"
-            Margin="60"
+            Margin="80"
             Animation="50486-rocket.json"
             AnimationSource="AssetOrBundle"
             BackgroundColor="#D1BAAC"
-            Command="{Binding ClickCommand}"
             HorizontalOptions="FillAndExpand"
-            RepeatCount="3"
-            RepeatMode="Restart"
+            RepeatMode="Infinite"
             VerticalOptions="FillAndExpand" />
 
         <pv:PancakeView
@@ -35,7 +34,7 @@
             CornerRadius="50"
             HorizontalOptions="FillAndExpand">
             <pv:PancakeView.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding SecondPageCommand}" />
+                <TapGestureRecognizer Command="{Binding ClickCommand}" />
             </pv:PancakeView.GestureRecognizers>
             <StackLayout
                 HorizontalOptions="Center"
@@ -54,7 +53,7 @@
             </StackLayout>
         </pv:PancakeView>
         <pv:PancakeView
-            Grid.Row="2"
+            Grid.Row="3"
             Margin="80,0"
             BackgroundColor="Black"
             CornerRadius="50"
