@@ -83,7 +83,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\LottieLogo.json" />
-    <AndroidAsset Include="Assets\50486-rocket.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>

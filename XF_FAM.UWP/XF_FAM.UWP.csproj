@@ -145,7 +145,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\50486-rocket.json" />
     <Content Include="Assets\LottieLogo.json" />
     <None Include="XF_FAM.UWP_TemporaryKey.pfx" />
   </ItemGroup>

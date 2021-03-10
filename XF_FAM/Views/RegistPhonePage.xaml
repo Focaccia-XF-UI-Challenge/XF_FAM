@@ -3,6 +3,7 @@
     x:Class="XF_FAM.Views.RegistPhonePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:prism="http://prismlibrary.com"
     prism:ViewModelLocator.AutowireViewModel="True"
     NavigationPage.HasNavigationBar="False">
@@ -17,9 +18,10 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="4*" />
         </Grid.ColumnDefinitions>
+
         <StackLayout Grid.Row="0" Grid.ColumnSpan="2">
             <Button Text="Back" />
         </StackLayout>
@@ -31,16 +33,27 @@
             FontSize="Large"
             Text="輸入你的手機" />
 
-        <Picker
+        <ffimageloadingsvg:SvgCachedImage
             Grid.Row="2"
             Grid.Column="0"
+            BackgroundColor="Black"
+            HeightRequest="25"
+            Source="resource://XF_FAM.Resources.avocado.svg"
+            VerticalOptions="Center"
+            WidthRequest="25" />
+
+        <Picker
+            Grid.Row="2"
+            Grid.Column="1"
             Margin="20,0"
             ItemDisplayBinding="{Binding Value}"
             ItemsSource="{Binding Countrys}" />
         <Entry
             Grid.Row="2"
-            Grid.Column="1"
+            Grid.Column="2"
             Margin="20,0" />
+
+
         <BoxView
             Grid.Row="3"
             Grid.ColumnSpan="3"
@@ -48,45 +61,49 @@
             BackgroundColor="#E1E0DE"
             CornerRadius="1"
             HeightRequest="3" />
-        <StackLayout
-            Grid.Row="4"
-            Grid.ColumnSpan="3"
-            Orientation="Horizontal">
-            <Label
-                FontAttributes="Bold"
-                Text="當您輸入手機號碼時，即表示您同意我們的"
-                TextColor="#737377" />
-            <Label
-                FontAttributes="Bold"
-                Text="服務條款"
-                TextColor="#80CBC4"
-                TextDecorations="Underline" />
-            <Label
-                FontAttributes="Bold"
-                Text="與"
-                TextColor="#737377" />
-            <Label
-                FontAttributes="Bold"
-                Text="隱私條款"
-                TextColor="#80CBC4"
-                TextDecorations="Underline" />
-            <Label
-                FontAttributes="Bold"
-                Text="。謝謝您!"
-                TextColor="#737377" />
-        </StackLayout>
 
-        <Button
+        <Label Grid.Row="4" Grid.ColumnSpan="3">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span
+                        FontAttributes="Bold"
+                        Text="當您輸入手機號碼時，即表示您同意我們的"
+                        TextColor="#737377" />
+                    <Span
+                        FontAttributes="Bold"
+                        Text="服務條款"
+                        TextColor="#80CBC4"
+                        TextDecorations="Underline" />
+                    <Span
+                        FontAttributes="Bold"
+                        Text="與"
+                        TextColor="#737377" />
+                    <Span
+                        FontAttributes="Bold"
+                        Text="隱私條款"
+                        TextColor="#80CBC4"
+                        TextDecorations="Underline" />
+                    <Span
+                        FontAttributes="Bold"
+                        Text="。謝謝您!"
+                        TextColor="#737377" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <StackLayout
             Grid.Row="5"
-            Grid.ColumnSpan="3"
-            Margin="140,60"
-            BackgroundColor="#F2F2F2"
-            Command="{Binding RegisterConfirmCommand}"
-            CornerRadius="50"
-            FontAttributes="Bold"
-            FontSize="Medium"
-            Text="下一步"
-            TextColor="#AFAFB3" />
+            Grid.Column="0"
+            Grid.ColumnSpan="3">
+            <Button
+                Margin="100,0"
+                BackgroundColor="#F2F2F2"
+                Command="{Binding RegisterConfirmCommand}"
+                CornerRadius="40"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                Text="下一步"
+                TextColor="#AFAFB3" />
+        </StackLayout>
 
     </Grid>
 </ContentPage>

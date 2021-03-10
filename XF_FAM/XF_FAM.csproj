@@ -5,13 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\50486-rocket.json" />
     <None Remove="Resources\avocado.svg" />
-    <None Remove="Resources\LottieLogo.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\50486-rocket.json" />
     <EmbeddedResource Include="Resources\avocado.svg" />
     <EmbeddedResource Include="Resources\LottieLogo.json" />
   </ItemGroup>

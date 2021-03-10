@@ -1,3 +1,4 @@
+using System;
 using Prism;
 using Prism.Ioc;
 using Xamarin.Essentials.Implementation;
@@ -19,7 +20,11 @@ namespace XF_FAM
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/LoginPage");
+            var result = await NavigationService.NavigateAsync("NavigationPage/LoginPage");
+            if (!result.Success)
+            {
+                Console.WriteLine("Error!!");
+            }
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

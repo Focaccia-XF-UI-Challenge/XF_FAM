@@ -43,6 +43,7 @@
                 <Label
                     FontSize="Micro"
                     Text="設定你的用戶名稱"
+                    TextColor="Black"
                     VerticalOptions="Center" />
                 <ffimageloadingsvg:SvgCachedImage
                     BackgroundColor="Black"
